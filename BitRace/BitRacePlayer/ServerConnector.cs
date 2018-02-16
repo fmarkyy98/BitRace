@@ -8,5 +8,6 @@ namespace BitRacePlayer
 {
     class ServerConnector
     {
+        ServerConnector() { }
     }
 }

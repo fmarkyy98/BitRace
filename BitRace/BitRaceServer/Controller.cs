@@ -9,6 +9,7 @@ namespace BitRaceServer
     class Controller
     {
         Game game;
+        MSSQLConnector mssqlConnector = new MSSQLConnector("");
 
         static void Main(string[] args)
         {

@@ -8,5 +8,19 @@ namespace BitRaceServer
 {
     class MSSQLConnector
     {
+        string connectionString;
+
+        string ConnectionString
+        {
+            get { return connectionString; }
+        }
+
+        public MSSQLConnector(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
+
+        public 
+
     }
 }

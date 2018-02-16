@@ -8,5 +8,6 @@ namespace BitRaceServer
 {
     class MasterConnector
     {
+        MasterConnector() { }
     }
 }

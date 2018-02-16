@@ -16,5 +16,17 @@ namespace BitRacePlayer
         {
             InitializeComponent();
         }
+
+        internal ServerConnector ServerConnector
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
     }
 }

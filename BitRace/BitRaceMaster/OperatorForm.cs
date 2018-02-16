@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BitRaceMaster
 {
-    public partial class Form1 : Form
+    public partial class OperatorForm : Form
     {
-        public Form1()
+        public OperatorForm()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace BitRaceMaster
 {
-    partial class Form1
+    partial class OperatorForm
     {
         /// <summary>
         /// Required designer variable.

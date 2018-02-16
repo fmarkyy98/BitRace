@@ -23,6 +23,18 @@ namespace BitRaceServer
             this.keysOfSelectedIncorrectAnsver = new List<char>();
         }
 
+        internal Enums Difficcilty
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         internal char keyOfCorrectAnsver()
         {
             return (char)0; // todo sql query

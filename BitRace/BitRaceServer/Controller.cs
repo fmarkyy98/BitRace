@@ -11,6 +11,54 @@ namespace BitRaceServer
         Game game;
         MSSQLConnector mssqlConnector = new MSSQLConnector("");
 
+        internal Game Game
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal MSSQLConnector MSSQLConnector
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal PlayerConnector PlayerConnector
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal MasterConnector MasterConnector
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         static void Main(string[] args)
         {
 

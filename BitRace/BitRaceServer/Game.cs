@@ -22,6 +22,42 @@ namespace BitRaceServer
             get { return new List<Player>(this.players); }
         }
 
+        internal PrimaryExtensionQuestion PrimaryExtensionQuestion
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal SecondaryExtensionQuestion SecondaryExtensionQuestion
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal Player Player
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         public Game(List<MainQuestion> questions, List<Player> players)
         {
             this.questions = new List<MainQuestion>(questions);

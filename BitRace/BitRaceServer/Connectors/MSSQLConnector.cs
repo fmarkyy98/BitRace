@@ -19,8 +19,5 @@ namespace BitRaceServer
         {
             this.connectionString = connectionString;
         }
-
-        public 
-
     }
 }

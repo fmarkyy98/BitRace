@@ -12,9 +12,9 @@ namespace BitRaceServer
         string name;
         int score;
 
-        public int Id { get { return id; } set { id = value; } }
-        public string Name { get { return name; } set { name = value; } }
-        public int Score { get { return score; } set { score = value > -1 ? value : 0; } }
+        public int Id { get { return this.id; } set { this.id = value; } }
+        public string Name { get { return this.name; } set { this.name = value; } }
+        public int Score { get { return this.score; } set { this.score = value > -1 ? value : 0; } }
 
         public Player(int id, string name, int score)
         {

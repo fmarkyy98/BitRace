@@ -8,7 +8,7 @@ namespace BitRaceServer
 {
     class Controller
     {
-        Game game = new Game();
+        Game game;
 
         static void Main(string[] args)
         {

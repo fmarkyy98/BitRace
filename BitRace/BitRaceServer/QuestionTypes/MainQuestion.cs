@@ -19,7 +19,7 @@ namespace BitRaceServer.QuestionTypes
         public MainQuestion(int id, string text, Dictionary<char, string> optionalAnswers, List<PrimaryExtensionQuestion> extensionQuestions) : base(id, text, optionalAnswers)
         {
             this.extensionQuestions = extensionQuestions;
-            difficulty = Difficulty.hard;
+            this.difficulty = Difficulty.hard;
         }
     }
 }

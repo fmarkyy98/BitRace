@@ -12,7 +12,7 @@ namespace BitRaceServer.QuestionTypes
 
         public SecondaryExtensionQuestion(int id, string text, Dictionary<char, string> optionalAnswers) : base(id, text, optionalAnswers)
         {
-            difficulty = Difficulty.easy;
+            this.difficulty = Difficulty.easy;
         }
     }
 }

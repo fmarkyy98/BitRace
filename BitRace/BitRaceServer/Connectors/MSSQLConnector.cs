@@ -8,8 +8,5 @@ namespace BitRaceServer
 {
     class MSSQLConnector
     {
-        internal Controller Controller
-        {
-        }
     }
 }

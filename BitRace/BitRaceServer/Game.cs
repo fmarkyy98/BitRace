@@ -9,18 +9,23 @@ namespace BitRaceServer
 {
     class Game
     {
-        List<MainQuestion> questions = new List<MainQuestion>();
-
-        List<Player> players = new List<Player>();
+        List<MainQuestion> questions;
+        List<Player> players;
 
         public List<MainQuestion> Questions
         {
-            get { return new List<MainQuestion>(questions); }
+            get { return new List<MainQuestion>(this.questions); }
         }
 
-        public Game()
+        public List<Player> Players
         {
+            get { return new List<Player>(this.players); }
+        }
 
+        public Game(List<MainQuestion> questions, List<Player> players)
+        {
+            this.questions = new List<MainQuestion>(questions);
+            this.players = new List<Player>(players);
         }
     }
 }

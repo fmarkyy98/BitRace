@@ -43,8 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="Connectors\MasterConnector.cs" />
+    <Compile Include="Connectors\MSSQLConnector.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Connectors\PlayerConnector.cs" />
+    <Compile Include="Controller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Question.cs" />
     <Compile Include="QuestionTypes\MainQuestion.cs" />
     <Compile Include="QuestionTypes\PrimaryExtensionQuestion.cs" />
     <Compile Include="QuestionTypes\Question.cs" />

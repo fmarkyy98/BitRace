@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace BitRaceServer
 {
-    class Program
+    abstract class Question
     {
-        static void Main(string[] args)
-        {
-        }
+
     }
 }

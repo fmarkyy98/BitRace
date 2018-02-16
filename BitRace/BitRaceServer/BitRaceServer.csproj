@@ -45,6 +45,10 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestionTypes\MainQuestion.cs" />
+    <Compile Include="QuestionTypes\PrimaryExtensionQuestion.cs" />
+    <Compile Include="QuestionTypes\Question.cs" />
+    <Compile Include="QuestionTypes\SecondaryExtensionQuestion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

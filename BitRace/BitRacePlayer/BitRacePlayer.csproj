@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ServerConnector.cs" />
     <Compile Include="ViewForm.cs">
       <SubType>Form</SubType>
     </Compile>

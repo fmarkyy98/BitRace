@@ -12,15 +12,15 @@ namespace BitRaceServer
         protected int id;
         protected string text;
         protected Difficulty difficulty;
-        protected Dictionary<char, string> optionalAnswers;
-        protected List<char> keysOfSelectedIncorrectAnsver = new List<char>();
+        protected Dictionary<int, string> optionalAnswers;
+        protected List<int> keysOfSelectedIncorrectAnsver = new List<int>();
 
-        public Question(int id, string text, Dictionary<char, string> optionalAnswers)
+        public Question(int id, string text, Dictionary<int, string> optionalAnswers)
         {
             this.id = id;
             this.text = text;
-            this.optionalAnswers = new Dictionary<char, string>(optionalAnswers);
-            this.keysOfSelectedIncorrectAnsver = new List<char>();
+            this.optionalAnswers = new Dictionary<int, string>(optionalAnswers);
+            this.keysOfSelectedIncorrectAnsver = new List<int>();
         }
 
         internal char keyOfCorrectAnsver()

@@ -1,0 +1,15 @@
+TABLE Questions 
+	id INT PRIMARY KEY
+	difficulty VARCHAR(255)
+	text VARCHAR(255);
+
+TABLE Ansvers
+	id INT PRIMARY KEY
+	text VARCHAR(255)
+	question_id INT FOREIGN KEY question.id
+	is_correct_ansver BOOLEAN
+
+TABLE Players
+	id INT PRIMARY KEY
+	name VARCHAR(255)
+	score INT

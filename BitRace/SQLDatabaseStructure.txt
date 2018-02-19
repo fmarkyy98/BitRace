@@ -13,3 +13,5 @@ TABLE Players
 	id INT PRIMARY KEY
 	name VARCHAR(255)
 	score INT
+
+Babucs.Hajnalka@njszg.hu

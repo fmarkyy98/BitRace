@@ -17,6 +17,8 @@ namespace BitRacePlayer
             InitializeComponent();
         }
 
+
+        #region DiagramGeneratedPropertyes
         internal ServerConnector ServerConnector
         {
             get
@@ -28,5 +30,6 @@ namespace BitRacePlayer
             {
             }
         }
+        #endregion
     }
 }

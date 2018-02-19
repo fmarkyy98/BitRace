@@ -93,25 +93,24 @@
     <Position X="5.5" Y="0.5" Width="1.5" />
     <AssociationLine Name="PrimaryExtensionQuestion" Type="BitRaceServer.QuestionTypes.PrimaryExtensionQuestion" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="5.5" Y="2.688" />
-        <Point X="5.125" Y="2.688" />
-        <Point X="5.125" Y="3.062" />
-        <Point X="4.75" Y="3.062" />
+        <Point X="5.5" Y="2.562" />
+        <Point X="4.562" Y="2.562" />
+        <Point X="4.562" Y="3" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
-        <Position X="-1.046" Y="0.112" Height="0.182" Width="1.766" />
+        <Position X="-0.794" Y="0.121" Height="0.182" Width="1.766" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="SecondaryExtensionQuestion" Type="BitRaceServer.QuestionTypes.SecondaryExtensionQuestion" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="SecondaryExtensionQuestion" Type="BitRaceServer.QuestionTypes.SecondaryExtensionQuestion" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="6" Y="2.891" />
-        <Point X="6" Y="3.377" />
-        <Point X="5.271" Y="3.377" />
-        <Point X="5.271" Y="5.562" />
-        <Point X="4.688" Y="5.562" />
+        <Point X="5.562" Y="2.891" />
+        <Point X="5.562" Y="3.25" />
+        <Point X="5.25" Y="3.25" />
+        <Point X="5.25" Y="6.116" />
+        <Point X="4.75" Y="6.116" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-1.161" Y="0.164" />
+        <Position X="-1.286" Y="0.633" />
       </MemberNameLabel>
     </AssociationLine>
     <AssociationLine Name="Player" Type="BitRaceServer.Player">

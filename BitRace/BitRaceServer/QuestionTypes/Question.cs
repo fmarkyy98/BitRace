@@ -23,6 +23,11 @@ namespace BitRaceServer
             this.keysOfSelectedIncorrectAnsver = new List<char>();
         }
 
+        internal char keyOfCorrectAnsver()
+        {
+            return (char)0; // todo sql query
+        }
+        #region DiagramGeneratedPropertyes
         internal Enums Difficcilty
         {
             get
@@ -34,10 +39,6 @@ namespace BitRaceServer
             {
             }
         }
-
-        internal char keyOfCorrectAnsver()
-        {
-            return (char)0; // todo sql query
-        }
+        #endregion
     }
 }

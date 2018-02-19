@@ -22,6 +22,12 @@ namespace BitRaceServer
             get { return new List<Player>(this.players); }
         }
 
+        public Game(List<MainQuestion> questions, List<Player> players)
+        {
+            this.questions = new List<MainQuestion>(questions);
+            this.players = new List<Player>(players);
+        }
+        #region DiagramGeneratedPropertyes
         internal PrimaryExtensionQuestion PrimaryExtensionQuestion
         {
             get
@@ -58,10 +64,6 @@ namespace BitRaceServer
             }
         }
 
-        public Game(List<MainQuestion> questions, List<Player> players)
-        {
-            this.questions = new List<MainQuestion>(questions);
-            this.players = new List<Player>(players);
-        }
+        #endregion
     }
 }

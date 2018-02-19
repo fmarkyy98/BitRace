@@ -11,6 +11,11 @@ namespace BitRaceServer
         Game game;
         MSSQLConnector mssqlConnector = new MSSQLConnector("");
 
+        static void Main(string[] args)
+        {
+
+        }
+        #region DiagramGeneratedPropertyes
         internal Game Game
         {
             get
@@ -58,10 +63,6 @@ namespace BitRaceServer
             {
             }
         }
-
-        static void Main(string[] args)
-        {
-
-        }
+        #endregion
     }
 }

@@ -8,7 +8,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="BitRacePlayer.ServerConnector">
-    <Position X="0.5" Y="3" Width="1.5" />
+    <Position X="0.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ServerConnector.cs</FileName>
@@ -16,17 +16,13 @@
   </Class>
   <Class Name="BitRacePlayer.ViewForm">
     <Position X="0.5" Y="0.5" Width="1.5" />
-    <AssociationLine Name="ServerConnector" Type="BitRacePlayer.ServerConnector" FixedToPoint="true">
-      <Path>
-        <Point X="1.812" Y="2.569" />
-        <Point X="1.812" Y="3" />
-      </Path>
+    <AssociationLine Name="ServerConnector" Type="BitRacePlayer.ServerConnector">
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.1" Y="0.123" />
+        <Position X="-0.596" Y="0.225" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAIAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAIAQACAAABAAAACAAAACAAAAAAAAEAAAAAAAACI=</HashCode>
       <FileName>ViewForm.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

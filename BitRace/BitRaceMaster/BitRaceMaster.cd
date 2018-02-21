@@ -2,13 +2,13 @@
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="BitRaceMaster.OperatorForm">
     <Position X="0.5" Y="0.5" Width="1.5" />
-    <AssociationLine Name="ServerConnector" Type="BitRaceMaster.ServerConnector" ManuallyRouted="true" FixedFromPoint="true">
+    <AssociationLine Name="ServerConnector" Type="BitRaceMaster.ServerConnector" ManuallyRouted="true" FixedToPoint="true">
       <Path>
-        <Point X="1.812" Y="2.569" />
-        <Point X="1.812" Y="3" />
+        <Point X="1.25" Y="2.569" />
+        <Point X="1.25" Y="3" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.068" Y="0.123" />
+        <Position X="-0.536" Y="0.154" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>

@@ -10,7 +10,7 @@ namespace BitRaceServer.QuestionTypes
     class SecondaryExtensionQuestion : Question
     {
 
-        public SecondaryExtensionQuestion(int id, string text, Dictionary<char, string> optionalAnswers) : base(id, text, optionalAnswers)
+        public SecondaryExtensionQuestion(int id, string text, Dictionary<int, string> optionalAnswers) : base(id, text, optionalAnswers)
         {
             this.difficulty = Difficulty.easy;
         }

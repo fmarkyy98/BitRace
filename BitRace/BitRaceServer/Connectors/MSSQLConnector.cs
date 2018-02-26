@@ -9,21 +9,21 @@ using static BitRaceServer.Enums.Difficulty;
 
 namespace BitRaceServer
 {
-     class MSSQLConnector
+     static class MSSQLConnector
     {
-        string connectionString;
+        static string connectionString;
 
-        string ConnectionString
+        static string ConnectionString
         {
             get { return connectionString; }
         }
 
-        public MSSQLConnector(string connectionString)
-        {
-            this.connectionString = connectionString;
-        }
+        //public MSSQLConnector(string connectionString)
+        //{
+        //    this.connectionString = connectionString;
+        //}
 
-        public IEnumerable<Player> QueryPlayers() //Dummy
+        public static IEnumerable<Player> QueryPlayers() //Dummy
         {
             IEnumerable<Player> result;
             result = new Player[] {
@@ -34,7 +34,7 @@ namespace BitRaceServer
             return result;
         }
 
-        public IEnumerable<Question> QueryQuestions(int limit, Difficulty difficulty) //Dummy
+        public static IEnumerable<Question> QueryQuestions(int limit, Difficulty difficulty) //Dummy
         {
             List<Question> result = new List<Question>();
             if (difficulty == hard)
@@ -61,7 +61,7 @@ namespace BitRaceServer
             return result;
         }
 
-        public Dictionary<int, string> QueryAnswers(int questinId) //Dummy
+        public static Dictionary<int, string> QueryAnswers(int questinId) //Dummy
         {
             Dictionary<int, string> result = new Dictionary<int, string>();
             for (int i = 0; i < 4; i++)
@@ -71,7 +71,7 @@ namespace BitRaceServer
             return result;
         }
 
-        public bool IsCorrectAnswer(int questionId, int anvwerId) //Dummy
+        public static bool IsCorrectAnswer(int questionId, int anvwerId) //Dummy
         {
             return false;
         }

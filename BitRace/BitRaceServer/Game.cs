@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BitRaceServer.QuestionTypes;
+using static BitRaceServer.MSSQLConnector;
 using static BitRaceServer.Enums;
 using static BitRaceServer.Enums.Difficulty;
 
@@ -11,10 +12,12 @@ namespace BitRaceServer
 {
     class Game
     {
+        int countOfMainQuetions;
+        int countOfPrimaryExtensionQuestions;
+        int countOfSecondaryExtensionQuestions;
         List<Player> players;
         List<MainQuestion> questions;
-        MSSQLConnector mssqlConnector = new MSSQLConnector("");
-        Dictionary<string, List<Question>> allQuestions = new Dictionary<string, List<Question>>();
+        Dictionary<string, List<Question>> allUseableQuestions = new Dictionary<string, List<Question>>();
         
         public List<MainQuestion> Questions
         {
@@ -26,11 +29,16 @@ namespace BitRaceServer
             get { return new List<Player>(this.players); }
         }
 
-        public Game(int countOfMainQuetions, int countOfExtensionQuestionsPerMainQuetion, int countOfExtensionQuestionsPerPrymaryExtensionQuetion)
+        public Game(int countOfMainQuetions, int countOfPrimaryExtensionQuestionsPerMainQuetion, int countOfSecondaryExtensionQuestionsPerPrymaryExtensionQuetion)
         {
+            this.countOfMainQuetions = countOfMainQuetions;
+            this.countOfPrimaryExtensionQuestions = this.countOfMainQuetions * countOfPrimaryExtensionQuestionsPerMainQuetion;
+            this.countOfSecondaryExtensionQuestions = this.countOfPrimaryExtensionQuestions * countOfSecondaryExtensionQuestionsPerPrymaryExtensionQuetion;
             this.questions = new List<MainQuestion>();
-            this.players = mssqlConnector.QueryPlayers().ToList();
-            allQuestions.Add("MainQuetion", mssqlConnector.QueryQuestions(countOfMainQuetions, hard).ToList());
+            this.players = QueryPlayers().ToList();
+            this.allUseableQuestions.Add("MainQuetion", QueryQuestions(countOfMainQuetions, hard).ToList());
+            this.allUseableQuestions.Add("PrimaryExtensionQuestion", QueryQuestions(countOfPrimaryExtensionQuestions, normal).ToList());
+            this.allUseableQuestions.Add("SecondaryExtensionQuestion", QueryQuestions(countOfSecondaryExtensionQuestions, easy).ToList());
         }
         #region DiagramGeneratedPropertyes
         internal PrimaryExtensionQuestion PrimaryExtensionQuestion

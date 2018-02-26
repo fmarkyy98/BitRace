@@ -14,7 +14,7 @@ namespace BitRaceServer
         protected Difficulty difficulty;
         protected Dictionary<int, string> optionalAnswers;
         protected List<int> keysOfSelectedIncorrectAnsver = new List<int>();
-
+        
         public Question(int id, string text, Dictionary<int, string> optionalAnswers)
         {
             this.id = id;
@@ -23,9 +23,9 @@ namespace BitRaceServer
             this.keysOfSelectedIncorrectAnsver = new List<int>();
         }
 
-        internal char keyOfCorrectAnsver()
+        internal int keyOfCorrectAnsver()
         {
-            return (char)0; // todo sql query
+            return 0; // todo sql query
         }
         #region DiagramGeneratedPropertyes
         internal Enums Difficcilty

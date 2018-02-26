@@ -4,9 +4,9 @@ TABLE Questions
 	text VARCHAR(255);
 
 TABLE Ansvers
-	id INT PRIMARY KEY
+	id INT Half-PRIMARY KEY
+	question_id INT Half-PRYMARY KEY FOREIGN KEY question.id
 	text VARCHAR(255)
-	question_id INT FOREIGN KEY question.id
 	is_correct_ansver BOOLEAN
 
 TABLE Players

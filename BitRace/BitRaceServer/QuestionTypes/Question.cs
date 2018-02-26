@@ -14,7 +14,7 @@ namespace BitRaceServer
         protected Difficulty difficulty;
         protected Dictionary<int, string> optionalAnswers;
         protected List<int> keysOfSelectedIncorrectAnsver = new List<int>();
-        
+
         public Question(int id, string text, Dictionary<int, string> optionalAnswers)
         {
             this.id = id;
@@ -25,7 +25,14 @@ namespace BitRaceServer
 
         internal int keyOfCorrectAnsver()
         {
-            return 0; // todo sql query
+            foreach (KeyValuePair<int, string> answer in optionalAnswers)
+            {
+               if( MSSQLConnector.IsCorrectAnswer(this.id, answer.Key))
+                {
+                    return answer.Key;
+                }
+            }
+            throw new MissingFieldException("This question doesn't bind to any correct ansver.");
         }
         #region DiagramGeneratedPropertyes
         internal Enums Difficcilty

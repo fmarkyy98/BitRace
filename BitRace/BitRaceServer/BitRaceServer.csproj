@@ -51,6 +51,7 @@
     <Compile Include="Connectors\PlayerConnector.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestionTypes\IExtendable.cs" />
     <Compile Include="QuestionTypes\MainQuestion.cs" />
     <Compile Include="QuestionTypes\PrimaryExtensionQuestion.cs" />
     <Compile Include="QuestionTypes\Question.cs" />

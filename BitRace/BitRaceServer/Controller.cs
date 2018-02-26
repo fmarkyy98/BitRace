@@ -9,7 +9,6 @@ namespace BitRaceServer
     class Controller
     {
         static Game game = new Game(10,3,3);
-        static MSSQLConnector mssqlConnector = new MSSQLConnector("");
 
         static void Main(string[] args)
         {
@@ -27,19 +26,6 @@ namespace BitRaceServer
             {
             }
         }
-
-        internal MSSQLConnector MSSQLConnector
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
         internal PlayerConnector PlayerConnector
         {
             get

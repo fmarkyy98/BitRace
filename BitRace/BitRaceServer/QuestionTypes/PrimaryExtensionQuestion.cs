@@ -7,7 +7,7 @@ using static BitRaceServer.Enums;
 
 namespace BitRaceServer.QuestionTypes
 {
-    class PrimaryExtensionQuestion : Question
+    class PrimaryExtensionQuestion : Question, IExtendable
     {
         List<SecondaryExtensionQuestion> extensionQuestions = new List<SecondaryExtensionQuestion>();
 
@@ -20,6 +20,11 @@ namespace BitRaceServer.QuestionTypes
         {
             this.extensionQuestions = extensionQuestions;
             this.difficulty = Difficulty.normal;
+        }
+
+        public void AddQuestion(Question question)
+        {
+            this.extensionQuestions.Add((SecondaryExtensionQuestion)question);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace BitRaceServer
         public static IEnumerable<Player> QueryPlayers() //Dummy
         {
             IEnumerable<Player> result;
-            result = new Player[] {
+            result = new List<Player> {
                 new Player(0, "Team0"),
                 new Player(1, "Team1"),
                 new Player(2, "Team2")

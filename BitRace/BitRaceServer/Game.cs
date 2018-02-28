@@ -12,12 +12,10 @@ namespace BitRaceServer
 {
     class Game
     {
-        int countOfMainQuetions;
-        int countOfPrimaryExtensionQuestions;
-        int countOfSecondaryExtensionQuestions;
+
         List<Player> players;
         List<MainQuestion> questions;
-        Dictionary<string, List<Question>> allUseableQuestions = new Dictionary<string, List<Question>>();
+
 
         public List<MainQuestion> Questions
         {
@@ -31,25 +29,29 @@ namespace BitRaceServer
 
         public Game(int countOfMainQuetions, int countOfPrimaryExtensionQuestionsOverMainQuetion, int countOfSecondaryExtensionQuestionsOverPrymaryExtensionQuetion)
         {
-            this.countOfMainQuetions = countOfMainQuetions;
-            this.countOfPrimaryExtensionQuestions = this.countOfMainQuetions * countOfPrimaryExtensionQuestionsOverMainQuetion;
-            this.countOfSecondaryExtensionQuestions = this.countOfPrimaryExtensionQuestions * countOfSecondaryExtensionQuestionsOverPrymaryExtensionQuetion;
+            int countOfPrimaryExtensionQuestions;
+            int countOfSecondaryExtensionQuestions;
+            Dictionary<string, List<Question>> allUseableQuestions = new Dictionary<string, List<Question>>();
+
+            countOfPrimaryExtensionQuestions = countOfMainQuetions * countOfPrimaryExtensionQuestionsOverMainQuetion;
+            countOfSecondaryExtensionQuestions = countOfPrimaryExtensionQuestions * countOfSecondaryExtensionQuestionsOverPrymaryExtensionQuetion;
 
             this.players = QueryPlayers().ToList();
             this.questions = new List<MainQuestion>();
-            
-            this.allUseableQuestions.Add("MainQuetion", QueryQuestions(countOfMainQuetions, hard).ToList());
-            this.allUseableQuestions.Add("PrimaryExtensionQuestion", QueryQuestions(countOfPrimaryExtensionQuestions, normal).ToList());
-            this.allUseableQuestions.Add("SecondaryExtensionQuestion", QueryQuestions(countOfSecondaryExtensionQuestions, easy).ToList());
+
+            allUseableQuestions.Add("MainQuetion", QueryQuestions(countOfMainQuetions, hard).ToList());
+            allUseableQuestions.Add("PrimaryExtensionQuestion", QueryQuestions(countOfPrimaryExtensionQuestions, normal).ToList());
+            allUseableQuestions.Add("SecondaryExtensionQuestion", QueryQuestions(countOfSecondaryExtensionQuestions, easy).ToList());
             questions = new List<MainQuestion>(allUseableQuestions["MainQuetion"].Select(x => (MainQuestion)x).ToList());
-            for (int i = 0; i < this.countOfMainQuetions; i++)
+            for (int i = 0; i < countOfMainQuetions; i++)
             {
-                for (int j = 0; j < countOfPrimaryExtensionQuestions; j++)
+                for (int j = 0; j < countOfPrimaryExtensionQuestionsOverMainQuetion; j++)
+
                 {
-                    questions[i].AddQuestion(allUseableQuestions["PrimaryExtensionQuestion"][countOfPrimaryExtensionQuestions * i + j]);
-                    for (int k = 0; k < countOfSecondaryExtensionQuestions; k++)
+                    questions[i].AddQuestion(allUseableQuestions["PrimaryExtensionQuestion"][countOfPrimaryExtensionQuestionsOverMainQuetion * i + j]);
+                    for (int k = 0; k < countOfSecondaryExtensionQuestionsOverPrymaryExtensionQuetion; k++)
                     {
-                        questions[i].ExtensionQuestions[j].AddQuestion(allUseableQuestions["SecondaryExtensionQuestion"][countOfSecondaryExtensionQuestions * j + k]);
+                        questions[i].ExtensionQuestions[j].AddQuestion(allUseableQuestions["SecondaryExtensionQuestion"][countOfSecondaryExtensionQuestionsOverPrymaryExtensionQuetion * j + k]);
                     }
 
                 }

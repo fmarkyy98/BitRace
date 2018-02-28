@@ -9,14 +9,14 @@ using static BitRaceServer.Enums.Difficulty;
 
 namespace BitRaceServer
 {
-     static class MSSQLConnector
+    static class MSSQLConnector
     {
-        static string connectionString;
+        //static string connectionString;
 
-        static string ConnectionString
-        {
-            get { return connectionString; }
-        }
+        //static string ConnectionString
+        //{
+        //    get { return connectionString; }
+        //}
 
         //public MSSQLConnector(string connectionString)
         //{
@@ -41,21 +41,21 @@ namespace BitRaceServer
             {
                 for (int i = 0; i < limit; i++)
                 {
-                    result.Add(new MainQuestion(i, "Test quetion 1",QueryAnswers(i), null));
+                    result.Add(new MainQuestion(i, "Test quetion " + i, QueryAnswers(i)));
                 }
             }
             else if (difficulty == normal)
             {
                 for (int i = 0; i < limit; i++)
                 {
-                    result.Add(new PrimaryExtensionQuestion(i, "Test quetion 1", QueryAnswers(i), null));
+                    result.Add(new PrimaryExtensionQuestion(i, "Test quetion " + i, QueryAnswers(i)));
                 }
             }
             else
             {
                 for (int i = 0; i < limit; i++)
                 {
-                    result.Add(new SecondaryExtensionQuestion(i, "Test quetion 1", QueryAnswers(i)));
+                    result.Add(new SecondaryExtensionQuestion(i, "Test quetion " + i, QueryAnswers(i)));
                 }
             }
             return result;

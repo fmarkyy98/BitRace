@@ -8,11 +8,12 @@ namespace BitRaceServer
 {
     class Controller
     {
-        static Game game = new Game(10,3,3);
+
+        //static Game game = new Game(10,3,3);
 
         static void Main(string[] args)
         {
-
+            MSSQLConnector.BuildConnection("string", "string", "string", "string");
         }
         #region DiagramGeneratedPropertyes
         internal Game Game

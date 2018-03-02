@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 using BitRaceServer.QuestionTypes;
 using static BitRaceServer.Enums;
 using static BitRaceServer.Enums.Difficulty;
@@ -11,19 +12,30 @@ namespace BitRaceServer
 {
     static class MSSQLConnector
     {
-        //static string connectionString;
+        static string connectionString = "Data Source=ServerName;Initial Catalog=DatabaseName;User ID=UserName;Password=Password";
+        static SqlConnection sqlConnection= new SqlConnection(connectionString);
 
-        //static string ConnectionString
-        //{
-        //    get { return connectionString; }
-        //}
+        static string ConnectionString
+        {
+            get { return connectionString; }
+        }
 
-        //public MSSQLConnector(string connectionString)
-        //{
-        //    this.connectionString = connectionString;
-        //}
+        public static void BuildConnection(string serverName, string databaseName, string userName, string password)
+        {
+            connectionString = $"Data Source={serverName};Initial Catalog={databaseName};User ID={userName};Password={password}";
+            sqlConnection = new SqlConnection(connectionString);
+            try
+            {
+                sqlConnection.Open();
+            }
+            catch (SqlException)
+            {
+                throw new InvalidOperationException("SqlException has thrown due to some incorrect parameter.");
+            }
+        }
 
-        public static IEnumerable<Player> QueryPlayers() //Dummy
+        //Dummy
+        public static IEnumerable<Player> QueryPlayers() 
         {
             IEnumerable<Player> result;
             result = new List<Player> {

@@ -9,5 +9,6 @@ namespace BitRaceMaster
     class ServerConnector
     {
         ServerConnector() { }
+
     }
 }

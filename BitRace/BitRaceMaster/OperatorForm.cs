@@ -17,6 +17,10 @@ namespace BitRaceMaster
             InitializeComponent();
         }
 
+        public void SQLState_Changed(object sender, EventArgs e)
+        {
+            SQL_StatusLabel.Text =
+        }
 
         #region DiagramGeneratedPropertyes
         internal ServerConnector ServerConnector
@@ -31,5 +35,10 @@ namespace BitRaceMaster
             }
         }
         #endregion
+
+        private void OperatorForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

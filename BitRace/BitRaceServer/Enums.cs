@@ -14,5 +14,12 @@ namespace BitRaceServer
             normal,
             hard
         }
+
+        public enum SQLState
+        {
+            failed,
+            building,
+            succeed
+        }
     }
 }

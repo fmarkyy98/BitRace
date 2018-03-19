@@ -15,20 +15,26 @@ namespace BitRaceWcfService
         static SQLState sqlState;
 
         static void Main(string[] args)
-                  {
+        {
             try
             {
                 MSSQLConnector.BuildConnection("string", "string", "string", "string");
-                Controller.sqlState = building;
+                sqlState = building;
                 Console.WriteLine("Connection was succesfully built.");
-                Controller.sqlState = connected;
+                sqlState = succeed;
             }
             catch (InvalidOperationException ex)
             {
                 Console.WriteLine(ex.Message);
-                Controller.sqlState = disconected;
+                sqlState = failed;
             }
             Console.ReadKey();
-        } 
+        }
+
+        static void ChangeGameState(SQLState sqlState)
+        {
+            Controller.sqlState = sqlState;
+            // dodo event
+        }
     }
 }

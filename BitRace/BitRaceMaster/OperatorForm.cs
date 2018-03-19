@@ -17,11 +17,6 @@ namespace BitRaceMaster
             InitializeComponent();
         }
 
-        public void SQLState_Changed(object sender, EventArgs e)
-        {
-            //SQL_StatusLabel.Text =
-        }
-
         #region DiagramGeneratedPropertyes
         internal ServerConnector ServerConnector
         {
@@ -38,7 +33,9 @@ namespace BitRaceMaster
 
         private void OperatorForm_Load(object sender, EventArgs e)
         {
-
+            BitRaceWcfServiceReference.Service1Client client = new BitRaceWcfServiceReference.Service1Client();
+            client.GetData(0);
+            // 0 SQLState Request.
         }
     }
 }

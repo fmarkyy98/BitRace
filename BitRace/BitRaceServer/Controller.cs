@@ -36,42 +36,5 @@ namespace BitRaceServer
             Controller.sqlState = sqlState;
             // dodo event
         }
-
-        #region DiagramGeneratedPropertyes
-        internal Game Game
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-        internal PlayerConnector PlayerConnector
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        internal MasterConnector MasterConnector
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-        #endregion
     }
 }

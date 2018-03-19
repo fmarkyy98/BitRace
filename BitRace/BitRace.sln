@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitRaceServer", "BitRaceServer\BitRaceServer.csproj", "{415AF7F0-5DE6-4B91-A143-D70B61B53A82}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitRaceServerOld", "BitRaceServer\BitRaceServerOld.csproj", "{415AF7F0-5DE6-4B91-A143-D70B61B53A82}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitRacePlayer", "BitRacePlayer\BitRacePlayer.csproj", "{36497D5F-873E-47FA-BC3A-41630256244E}"
 EndProject
@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		SQLDatabaseStructure.txt = SQLDatabaseStructure.txt
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitRaceWcfService", "BitRaceWcfService\BitRaceWcfService.csproj", "{9B3F9C37-6F5D-4E87-B1D1-D8F0F0A653C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{FB726A25-245A-456E-9852-0391D66E00C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB726A25-245A-456E-9852-0391D66E00C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB726A25-245A-456E-9852-0391D66E00C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B3F9C37-6F5D-4E87-B1D1-D8F0F0A653C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B3F9C37-6F5D-4E87-B1D1-D8F0F0A653C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B3F9C37-6F5D-4E87-B1D1-D8F0F0A653C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B3F9C37-6F5D-4E87-B1D1-D8F0F0A653C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

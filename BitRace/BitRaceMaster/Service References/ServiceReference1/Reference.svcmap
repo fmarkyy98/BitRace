@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a0bf184e-6454-4983-a77b-f17b85c711c2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:49793/BitRaceWcfService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="ade74985-6742-4b3f-b458-8bec362ba1ba" SourceId="1" SourceUrl="http://localhost:49793/BitRaceWcfService.svc?wsdl" />
+    <MetadataFile FileName="BitRaceWcfService.disco" MetadataType="Disco" ID="9e3291bb-df6e-4095-a487-0323f096f676" SourceId="1" SourceUrl="http://localhost:49793/BitRaceWcfService.svc?disco" />
+    <MetadataFile FileName="BitRaceWcfService.xsd" MetadataType="Schema" ID="bf45dd4d-e67a-44f4-9e63-620c40da5798" SourceId="1" SourceUrl="http://localhost:49793/BitRaceWcfService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BitRaceWcfService1.xsd" MetadataType="Schema" ID="ade52446-9a71-47cd-952a-415711e715ac" SourceId="1" SourceUrl="http://localhost:49793/BitRaceWcfService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BitRaceWcfService2.xsd" MetadataType="Schema" ID="3bf82fab-3842-4f4b-ae60-b2b1e7516581" SourceId="1" SourceUrl="http://localhost:49793/BitRaceWcfService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -8,13 +8,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitRacePlayer", "BitRacePlayer\BitRacePlayer.csproj", "{36497D5F-873E-47FA-BC3A-41630256244E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitRaceMaster", "BitRaceMaster\BitRaceMaster.csproj", "{FB726A25-245A-456E-9852-0391D66E00C7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9B3F9C37-6F5D-4E87-B1D1-D8F0F0A653C5} = {9B3F9C37-6F5D-4E87-B1D1-D8F0F0A653C5}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B08F15DE-3FBD-4EE8-B5CB-7CFEFF73266B}"
 	ProjectSection(SolutionItems) = preProject
 		SQLDatabaseStructure.txt = SQLDatabaseStructure.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitRaceWcfService", "BitRaceWcfService\BitRaceWcfService.csproj", "{9B3F9C37-6F5D-4E87-B1D1-D8F0F0A653C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitRaceWcfServiceServer", "BitRaceWcfService\BitRaceWcfServiceServer.csproj", "{9B3F9C37-6F5D-4E87-B1D1-D8F0F0A653C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

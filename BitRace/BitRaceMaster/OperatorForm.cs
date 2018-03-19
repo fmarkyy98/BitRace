@@ -19,7 +19,7 @@ namespace BitRaceMaster
 
         public void SQLState_Changed(object sender, EventArgs e)
         {
-            SQL_StatusLabel.Text =
+            //SQL_StatusLabel.Text =
         }
 
         #region DiagramGeneratedPropertyes

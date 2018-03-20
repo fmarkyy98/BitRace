@@ -29,6 +29,6 @@ namespace BitRaceWcfService
                 Controller.sqlState = disconected;
             }
             Console.ReadKey();
-        }
+        } 
     }
 }

@@ -33,8 +33,7 @@ namespace BitRaceMaster
 
         private void OperatorForm_Load(object sender, EventArgs e)
         {
-            BitRaceWcfServiceReference.Service1Client client = new BitRaceWcfServiceReference.Service1Client();
-            client.GetData(0);
+          
             // 0 SQLState Request.
         }
     }

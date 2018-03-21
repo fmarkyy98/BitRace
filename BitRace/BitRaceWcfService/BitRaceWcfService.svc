@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="BitRaceWcfService.Service1" CodeBehind="BitRaceWcfService.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="BitRaceWcfService.BitRaceWcfService" CodeBehind="BitRaceWcfService.svc.cs" %>

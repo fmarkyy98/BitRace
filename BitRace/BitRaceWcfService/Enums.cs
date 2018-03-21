@@ -17,9 +17,9 @@ namespace BitRaceWcfService
 
         public enum SQLState
         {
-            failed,
+            disconected,
             building,
-            succeed
+            connected
         }
     }
 }

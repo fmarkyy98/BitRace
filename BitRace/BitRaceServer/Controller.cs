@@ -34,7 +34,7 @@ namespace BitRaceServer
         static void ChangeGameState(SQLState sqlState)
         {
             Controller.sqlState = sqlState;
-            // dodo event
+            // dodo event  
         }
     }
 }

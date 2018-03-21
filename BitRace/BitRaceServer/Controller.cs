@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static BitRaceServer.Enums;
-using static BitRaceServer.Enums.SQLState;
+using static BitRaceServer.Enums.ConnectionState;
 
 namespace BitRaceServer
 {
@@ -12,7 +12,7 @@ namespace BitRaceServer
     {
 
         static Game game = new Game(10, 3, 3);
-        static SQLState sqlState;
+        static ConnectionState sqlState;
 
         static void Main(string[] args)
         {
@@ -21,17 +21,17 @@ namespace BitRaceServer
                 MSSQLConnector.BuildConnection("string", "string", "string", "string");
                 sqlState = building;
                 Console.WriteLine("Connection was succesfully built.");
-                sqlState = succeed;
+                sqlState = connected;
             }
             catch (InvalidOperationException ex)
             {
                 Console.WriteLine(ex.Message);
-                sqlState = failed;
+                sqlState = disconnected;
             }
             Console.ReadKey();
         }
 
-        static void ChangeGameState(SQLState sqlState)
+        static void ChangeGameState(ConnectionState sqlState)
         {
             Controller.sqlState = sqlState;
             // dodo event

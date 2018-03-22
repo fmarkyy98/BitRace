@@ -14,5 +14,10 @@ namespace BitRacePlayer
             building,
             connected
         }
+        public enum ConnectionType
+        {
+            MSSQL,
+            TCPIP
+        }
     }
 }

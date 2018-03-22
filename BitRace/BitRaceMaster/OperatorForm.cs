@@ -24,6 +24,8 @@ namespace BitRaceMaster
         public OperatorForm()
         {
             InitializeComponent();
+            changeConnectionState(MSSQL, disconnected);
+            changeConnectionState(TCPIP, disconnected);
         }
 
         private void changeConnectionState(ConnectionType connectionType, Enums.ConnectionState connectionState)
@@ -44,32 +46,21 @@ namespace BitRaceMaster
             {
                 case disconnected:
                     selectedColor = Color.Red;
+                    if (connectionType == TCPIP) { connect_button.Enabled = true; }
                     break;
                 case building:
-                    selectedColor = Color.Gold;
+                    selectedColor = Color.Orange;
+                    if (connectionType == TCPIP) { connect_button.Enabled = false; }
                     break;
                 case connected:
                     selectedColor = Color.Green;
+                    if (connectionType == TCPIP) { connect_button.Enabled = false; }
                     break;
             }
             selectedLabel.Text = connectionState.ToString();
             selectedLabel.ForeColor = selectedColor;
             Application.DoEvents();
         }
-
-        #region DiagramGeneratedPropertyes
-        internal ServerConnector ServerConnector
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-        #endregion
 
         private void OperatorForm_Load(object sender, EventArgs e)
         {

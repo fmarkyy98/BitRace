@@ -86,6 +86,17 @@ namespace BitRaceMaster
                 return;
             }
             changeConnectionState(TCPIP, connected);
+
+            try
+            {
+                string szData = "Hello There";
+                byte[] byData = Encoding.ASCII.GetBytes(szData);
+                socketListener.Send(byData);
+            }
+            catch (SocketException se)
+            {
+                MessageBox.Show(se.Message);
+            }
         }
     }
 }

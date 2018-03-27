@@ -14,9 +14,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		SQLDatabaseStructure.txt = SQLDatabaseStructure.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessengerClient", "..\..\..\..\Desktop\Messenger\MessengerClient\MessengerClient.csproj", "{4602F144-A66F-4846-94FE-3ECA8FDC7D4A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessengerClient", "MessengerClient\MessengerClient.csproj", "{4602F144-A66F-4846-94FE-3ECA8FDC7D4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessengerServer", "..\..\..\..\Desktop\Messenger\MessengerServer\MessengerServer.csproj", "{D839F8B3-6500-4558-879C-DC634E5D02AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessengerServer", "MessengerServer\MessengerServer.csproj", "{D839F8B3-6500-4558-879C-DC634E5D02AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -16,7 +16,6 @@ namespace BitRaceServer
         List<Player> players;
         List<MainQuestion> questions;
 
-
         public List<MainQuestion> Questions
         {
             get { return new List<MainQuestion>(this.questions); }
@@ -46,55 +45,22 @@ namespace BitRaceServer
             for (int i = 0; i < countOfMainQuetions; i++)
             {
                 for (int j = 0; j < countOfPrimaryExtensionQuestionsOverMainQuetion; j++)
-
                 {
                     questions[i].AddQuestion(allUseableQuestions["PrimaryExtensionQuestion"][countOfPrimaryExtensionQuestionsOverMainQuetion * i + j]);
                     for (int k = 0; k < countOfSecondaryExtensionQuestionsOverPrymaryExtensionQuetion; k++)
                     {
                         questions[i].ExtensionQuestions[j].AddQuestion(allUseableQuestions["SecondaryExtensionQuestion"][countOfSecondaryExtensionQuestionsOverPrymaryExtensionQuetion * j + k]);
                     }
-
                 }
-
             }
         }
-        #region DiagramGeneratedPropertyes
-        internal PrimaryExtensionQuestion PrimaryExtensionQuestion
+
+        public void AddPlayer(string name)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
+            Player tempPlayer = new Player(0,name);
+            InsertPlayer(tempPlayer);
+            players.Add(tempPlayer);
         }
 
-        internal SecondaryExtensionQuestion SecondaryExtensionQuestion
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        internal Player Player
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        #endregion
     }
 }

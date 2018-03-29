@@ -13,7 +13,7 @@ namespace BitRaceServer
     static class MSSQLConnector
     {
         static string connectionString = "Data Source=ServerName;Initial Catalog=DatabaseName;User ID=UserName;Password=Password";
-        static SqlConnection sqlConnection= new SqlConnection(connectionString);
+        static SqlConnection sqlConnection = new SqlConnection(connectionString);
 
         static string ConnectionString
         {
@@ -35,7 +35,7 @@ namespace BitRaceServer
         }
 
         //Dummy
-        public static IEnumerable<Player> QueryPlayers() 
+        public static IEnumerable<Player> QueryPlayers()
         {
             IEnumerable<Player> result;
             result = new List<Player> {
@@ -86,6 +86,11 @@ namespace BitRaceServer
         public static bool IsCorrectAnswer(int questionId, int anvwerId) //Dummy
         {
             return false;
+        }
+
+        public static bool InsertPlayer(Player insertable)
+        {
+            return true;
         }
 
     }

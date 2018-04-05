@@ -40,8 +40,8 @@ namespace BitRaceServer
             IEnumerable<Player> result;
             result = new List<Player> {
                 new Player(0, "Team0"),
-                new Player(1, "Team1"),
-                new Player(2, "Team2")
+                new Player(0, "Team1"),
+                new Player(0, "Team2")
             };
             return result;
         }

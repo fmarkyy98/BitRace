@@ -25,7 +25,7 @@ namespace BitRacePlayer
             InitializeComponent();
             changeConnectionState(MSSQL, disconnected);
             changeConnectionState(TCPIP, disconnected);
-            connect_button.Enabled = false;
+            submit_button.Enabled = false;
         }
 
         private void changeConnectionState(ConnectionType connectionType, Enums.ConnectionState connectionState)
@@ -91,17 +91,55 @@ namespace BitRacePlayer
             }
             changeConnectionState(TCPIP, connected);
             connection.Send(Encoding.ASCII.GetBytes("mssql"));
+            submit_button.Enabled = true;
+            if (name != null)
+            {
+                string message = $"register;{name}";
+                byte[] data = Encoding.ASCII.GetBytes(message);
+                try
+                {
+                    connection.Send(data);
+                }
+                catch (SocketException)
+                {
+                    changeConnectionState(TCPIP, disconnected);
+                }
+            }
+        }
+
+        private void submit_button_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show($"If you choose this name:{name_textBox.Text} you won't be able to change. Are you sure about your choice?", "Confirmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (dr != DialogResult.Yes)
+            {
+                return;
+            }
+            name = name_textBox.Text;            
+            submit_button.Enabled = false;
+            name_textBox.ReadOnly = true;
+
+            string message = $"register;{name}";
+            byte[] data = Encoding.ASCII.GetBytes(message);
+            try
+            {
+                connection.Send(data);
+            }
+            catch (SocketException)
+            {
+                changeConnectionState(TCPIP, disconnected);
+            }
         }
 
         private void send_button_Click(object sender, EventArgs e)
         {
+            error_StatusLabel.Text = "";
             DialogResult dr = MessageBox.Show("Are you sure about your choice?", "Confirmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (dr != DialogResult.Yes)
             {
                 return;
             }
 
-            string message = $"{name};answer;";
+            string message = $"answer;{name};";
             if (radioButtonA.Checked)
             {
                 message += "a";
@@ -133,19 +171,6 @@ namespace BitRacePlayer
             {
                 changeConnectionState(TCPIP, disconnected);
             }
-        }
-
-        private void submit_button_Click(object sender, EventArgs e)
-        {
-            DialogResult dr = MessageBox.Show($"If you choose this name:{name_textBox.Text} you won't be able to change. Are you sure about your choice?", "Confirmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-            if (dr != DialogResult.Yes)
-            {
-                return;
-            }
-            name = name_textBox.Text;
-            submit_button.Enabled = false;
-            name_textBox.ReadOnly = true;
-            connect_button.Enabled = true;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -181,7 +206,7 @@ namespace BitRacePlayer
                 connection.Shutdown(SocketShutdown.Both);
                 connection.Close();
                 changeConnectionState(TCPIP, disconnected);
-
+                changeConnectionState(MSSQL, disconnected);
             }
         }
     }

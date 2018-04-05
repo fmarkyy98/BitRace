@@ -6,6 +6,7 @@ TABLE Questions
 TABLE Ansvers
 	id INT PRIMARY KEY a_i
 	question_id INT  FOREIGN KEY question.id
+	caracter_key
 	text VARCHAR(255)
 	is_correct_ansver BOOLEAN
 

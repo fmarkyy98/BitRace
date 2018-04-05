@@ -7,6 +7,7 @@ using BitRaceServer.QuestionTypes;
 using static BitRaceServer.MSSQLConnector;
 using static BitRaceServer.Enums;
 using static BitRaceServer.Enums.Difficulty;
+using System.Net.Sockets;
 
 namespace BitRaceServer
 {
@@ -57,7 +58,14 @@ namespace BitRaceServer
 
         public void AddPlayer(string name)
         {
-            Player tempPlayer = new Player(0,name);
+            Player tempPlayer = new Player(players.Count, name);
+            InsertPlayer(tempPlayer);
+            players.Add(tempPlayer);
+        }
+
+        public void AddPlayer(string name, Socket socket)
+        {
+            Player tempPlayer = new Player(players.Count, name, socket);
             InsertPlayer(tempPlayer);
             players.Add(tempPlayer);
         }

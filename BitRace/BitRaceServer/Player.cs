@@ -27,6 +27,13 @@ namespace BitRaceServer
             this.score = score;
         }
 
+        public Player(int id, string name,Socket socket)
+        {
+            this.id = id;
+            this.name = name;
+            playerConnector = new PlayerConnector(socket);
+        }
+
         public void Conect(Socket socket)
         {
             //if (playerConnector == null)

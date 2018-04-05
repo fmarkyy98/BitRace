@@ -50,6 +50,22 @@ namespace BitRaceServer
                 {
                     incoming.Send(Encoding.ASCII.GetBytes(/*sqlState.ToString()*/"mssql;connected".ToLower()));
                 }
+                else if (splitedInput[0] == "register")
+                {
+                    int indexOfCurrent = game.Players.Select(x => x.Name).ToList().IndexOf(splitedInput[0]);
+                    if (indexOfCurrent == -1)
+                    {
+                        game.AddPlayer(splitedInput[0], incoming);
+                    }
+                    else
+                    {
+                        game.Players[indexOfCurrent].Conect(incoming);
+                    }
+                }
+                else if (splitedInput[0] == "ansver")
+                {
+
+                }
             }
         }
 

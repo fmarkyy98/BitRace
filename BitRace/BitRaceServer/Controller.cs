@@ -13,17 +13,14 @@ namespace BitRaceServer
 {
     class Controller
     {
-
         static Game game = new Game(10, 3, 3);
         static ConnectionState sqlState;
 
         static void Main(string[] args)
         {
-            Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            sock.Bind(new IPEndPoint(new IPAddress(new byte[] { 127, 0, 0, 1 }), 8912));
-            sock.Listen(1000);
-            Console.WriteLine("Started Listening at LocalHost:8912");
-
+            Socket connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            connection.Bind(new IPEndPoint(new IPAddress(new byte[] { 127, 0, 0, 1 }), 8912));
+            connection.Listen(0);
             try
             {
                 MSSQLConnector.BuildConnection("string", "string", "string", "string");
@@ -36,13 +33,24 @@ namespace BitRaceServer
                 Console.WriteLine(ex.Message);
                 Controller.sqlState = disconnected;
             }
-
             Console.WriteLine("Started Listening at LocalHost:8912");
             while (true)
             {
-                var incoming = sock.Accept();
+                Socket incoming = connection.Accept();
+                if (!incoming.Poll(0, SelectMode.SelectRead))
+                {
+                    continue;
+                }
+                byte[] buffer = new byte[1024];
+                int recieveSize = incoming.Receive(buffer);
+                string input = Encoding.ASCII.GetString(buffer, 0, recieveSize);
+                string[] splitedInput = input.Split(';');
+
+                if (splitedInput[0] == "mssql")
+                {
+                    incoming.Send(Encoding.ASCII.GetBytes(/*sqlState.ToString()*/"mssql;connected".ToLower()));
+                }
             }
-            Console.ReadKey();
         }
 
         static void ChangeGameState(ConnectionState sqlState)

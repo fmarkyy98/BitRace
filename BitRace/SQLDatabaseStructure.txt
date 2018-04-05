@@ -1,11 +1,11 @@
 TABLE Questions 
-	id INT PRIMARY KEY
+	id INT PRIMARY KEY a_i
 	difficulty VARCHAR(255)
 	text VARCHAR(255);
 
 TABLE Ansvers
-	id INT Half-PRIMARY KEY
-	question_id INT Half-PRYMARY KEY FOREIGN KEY question.id
+	id INT PRIMARY KEY a_i
+	question_id INT  FOREIGN KEY question.id
 	text VARCHAR(255)
 	is_correct_ansver BOOLEAN
 

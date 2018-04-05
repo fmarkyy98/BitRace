@@ -37,6 +37,8 @@
             this.TCP_StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.submit_button = new System.Windows.Forms.Button();
+            this.name_textBox = new System.Windows.Forms.TextBox();
             this.connect_button = new System.Windows.Forms.Button();
             this.ipAdress_textBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,8 +57,10 @@
             this.radioButtonB = new System.Windows.Forms.RadioButton();
             this.radioButtonC = new System.Windows.Forms.RadioButton();
             this.radioButtonD = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
+            this.send_button = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.error_StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -73,7 +77,9 @@
             this.SQL_StatusLabel,
             this.spacing_toolStripStatusLabel,
             this.toolStripStatusLabel2,
-            this.TCP_StatusLabel});
+            this.TCP_StatusLabel,
+            this.toolStripStatusLabel3,
+            this.error_StatusLabel});
             this.statusStrip1.Location = new System.Drawing.Point(0, 340);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(584, 22);
@@ -125,6 +131,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.submit_button);
+            this.tabPage1.Controls.Add(this.name_textBox);
             this.tabPage1.Controls.Add(this.connect_button);
             this.tabPage1.Controls.Add(this.ipAdress_textBox);
             this.tabPage1.Controls.Add(this.label2);
@@ -138,9 +146,26 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // submit_button
+            // 
+            this.submit_button.Location = new System.Drawing.Point(365, 38);
+            this.submit_button.Name = "submit_button";
+            this.submit_button.Size = new System.Drawing.Size(82, 23);
+            this.submit_button.TabIndex = 12;
+            this.submit_button.Text = "Submit Name";
+            this.submit_button.UseVisualStyleBackColor = true;
+            this.submit_button.Click += new System.EventHandler(this.submit_button_Click);
+            // 
+            // name_textBox
+            // 
+            this.name_textBox.Location = new System.Drawing.Point(112, 40);
+            this.name_textBox.Name = "name_textBox";
+            this.name_textBox.Size = new System.Drawing.Size(247, 20);
+            this.name_textBox.TabIndex = 11;
+            // 
             // connect_button
             // 
-            this.connect_button.Location = new System.Drawing.Point(278, 23);
+            this.connect_button.Location = new System.Drawing.Point(333, 186);
             this.connect_button.Name = "connect_button";
             this.connect_button.Size = new System.Drawing.Size(75, 36);
             this.connect_button.TabIndex = 10;
@@ -150,7 +175,7 @@
             // 
             // ipAdress_textBox
             // 
-            this.ipAdress_textBox.Location = new System.Drawing.Point(30, 39);
+            this.ipAdress_textBox.Location = new System.Drawing.Point(85, 202);
             this.ipAdress_textBox.Name = "ipAdress_textBox";
             this.ipAdress_textBox.Size = new System.Drawing.Size(100, 20);
             this.ipAdress_textBox.TabIndex = 6;
@@ -159,7 +184,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(151, 23);
+            this.label2.Location = new System.Drawing.Point(206, 186);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 13);
             this.label2.TabIndex = 9;
@@ -167,7 +192,7 @@
             // 
             // portNumber_textBox
             // 
-            this.portNumber_textBox.Location = new System.Drawing.Point(154, 39);
+            this.portNumber_textBox.Location = new System.Drawing.Point(209, 202);
             this.portNumber_textBox.Name = "portNumber_textBox";
             this.portNumber_textBox.Size = new System.Drawing.Size(100, 20);
             this.portNumber_textBox.TabIndex = 7;
@@ -176,7 +201,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 23);
+            this.label1.Location = new System.Drawing.Point(82, 186);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 8;
@@ -229,7 +254,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.send_button, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 187);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -350,21 +375,33 @@
             this.radioButtonD.Text = "a4";
             this.radioButtonD.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // send_button
             // 
-            this.button1.AutoSize = true;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(482, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 112);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.send_button.AutoSize = true;
+            this.send_button.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.send_button.Location = new System.Drawing.Point(482, 3);
+            this.send_button.Name = "send_button";
+            this.send_button.Size = new System.Drawing.Size(79, 112);
+            this.send_button.TabIndex = 7;
+            this.send_button.Text = "Send Answer";
+            this.send_button.UseVisualStyleBackColor = true;
+            this.send_button.Click += new System.EventHandler(this.send_button_Click);
             // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(49, 17);
+            this.toolStripStatusLabel3.Text = "              ";
+            // 
+            // error_StatusLabel
+            // 
+            this.error_StatusLabel.ForeColor = System.Drawing.Color.Red;
+            this.error_StatusLabel.Name = "error_StatusLabel";
+            this.error_StatusLabel.Size = new System.Drawing.Size(0, 17);
             // 
             // ViewForm
             // 
@@ -419,8 +456,12 @@
         private System.Windows.Forms.RadioButton radioButtonB;
         private System.Windows.Forms.RadioButton radioButtonC;
         private System.Windows.Forms.RadioButton radioButtonD;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button send_button;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button submit_button;
+        private System.Windows.Forms.TextBox name_textBox;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripStatusLabel error_StatusLabel;
     }
 }
 

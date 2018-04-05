@@ -52,8 +52,6 @@ namespace BitRaceServer
 
         public void SendData()
         {
-            byte[] buffer = new byte[1024];
-            int recieveSize = connection.Receive(buffer);
             byte[] data = Encoding.ASCII.GetBytes(output);
             connection.Send(data);
         }

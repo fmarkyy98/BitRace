@@ -18,7 +18,8 @@ namespace BitRacePlayer
     public partial class ViewForm : Form
     {
         Socket connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
-        public IPEndPoint ipEndPoint;
+        IPEndPoint ipEndPoint;
+        string name;
 
         public ViewForm()
         {
@@ -87,11 +88,17 @@ namespace BitRacePlayer
                 return;
             }
             changeConnectionState(TCPIP, connected);
-            connection.Send(Encoding.ASCII.GetBytes("request;sql"));
+            connection.Send(Encoding.ASCII.GetBytes("mssql"));
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void send_button_Click(object sender, EventArgs e)
         {
+            DialogResult dr = MessageBox.Show("Are you sour about your choise?", "Confirmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (dr != DialogResult.Yes)
+            {
+                return;
+            }
+
             string message = "ansver;";
             if (radioButtonA.Checked)
             {
@@ -105,17 +112,63 @@ namespace BitRacePlayer
             {
                 message += "c";
             }
-            else
+            else if (radioButtonD.Checked)
             {
                 message += "d";
             }
-            var b = Encoding.ASCII.GetBytes(message);
-            connection.Send(b);
+            else
+            {
+                error_StatusLabel.Text = "No answer chosen.";
+                return;
+            }
+
+            byte[] data = Encoding.ASCII.GetBytes(message);
+            try
+            {
+                connection.Send(data);
+            }
+            catch (SocketException)
+            {
+                changeConnectionState(TCPIP, disconnected);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (!connection.Poll(0, SelectMode.SelectRead))
+            {
+                return;
+            }
+            byte[] buffer = new byte[1024];
+            int recieveSize = connection.Receive(buffer);
+            string input = Encoding.ASCII.GetString(buffer, 0, recieveSize);
+            string[] splitedInput = input.Split(';');
 
+            if (splitedInput[0] == "mssql")
+            {
+                ConnectionType currentConnectionType = MSSQL;
+                Enums.ConnectionState currentConnectionState = ToConnectionState(splitedInput[1]);
+                changeConnectionState(currentConnectionType, currentConnectionState);
+            }
+            else if (splitedInput[0] == "question")
+            {
+                textBoxQuestion.Text = splitedInput[1];
+                radioButtonA.Text = splitedInput[2];
+                radioButtonB.Text = splitedInput[3];
+                radioButtonC.Text = splitedInput[4];    
+                radioButtonD.Text = splitedInput[5];
+            }
+        }
+
+        private void submit_button_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show($"If you chose this name:{name_textBox.Text} you won't be able to change. Are you sour about your choise?", "Confirmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (dr != DialogResult.Yes)
+            {
+                return;
+            }
+            submit_button.Enabled = false;
+            name_textBox.ReadOnly = true;
         }
     }
 }

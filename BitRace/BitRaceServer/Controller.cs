@@ -62,10 +62,6 @@ namespace BitRaceServer
                         game.Players[indexOfCurrent].Conect(incoming);
                     }
                 }
-                else if (splitedInput[0] == "ansver")
-                {
-
-                }
             }
         }
 

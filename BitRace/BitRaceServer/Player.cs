@@ -36,11 +36,6 @@ namespace BitRaceServer
 
         public void Conect(Socket socket)
         {
-            //if (playerConnector == null)
-            //{
-            //    playerConnector = new PlayerConnector(socket);
-            //}
-
             playerConnector = playerConnector ?? new PlayerConnector(socket);
         }
     }

@@ -17,7 +17,7 @@ namespace BitRacePlayer
 {
     public partial class ViewForm : Form
     {
-        Socket socketListener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
+        Socket connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
         public IPEndPoint ipEndPoint;
 
         public ViewForm()
@@ -45,7 +45,11 @@ namespace BitRacePlayer
             {
                 case disconnected:
                     selectedColor = Color.Red;
-                    if (connectionType == TCPIP) { connect_button.Enabled = true; }
+                    if (connectionType == TCPIP)
+                    {
+                        connect_button.Enabled = true;
+                        timer1.Stop();
+                    }
                     break;
                 case building:
                     selectedColor = Color.Orange;
@@ -53,7 +57,11 @@ namespace BitRacePlayer
                     break;
                 case connected:
                     selectedColor = Color.Green;
-                    if (connectionType == TCPIP) { connect_button.Enabled = false; }
+                    if (connectionType == TCPIP)
+                    {
+                        connect_button.Enabled = false;
+                        timer1.Start();
+                    }
                     break;
             }
             selectedLabel.Text = connectionState.ToString();
@@ -71,7 +79,7 @@ namespace BitRacePlayer
             try
             {
                 changeConnectionState(TCPIP, building);
-                socketListener.Connect(ipEndPoint);
+                connection.Connect(ipEndPoint);
             }
             catch (SocketException ex)
             {
@@ -79,6 +87,35 @@ namespace BitRacePlayer
                 return;
             }
             changeConnectionState(TCPIP, connected);
+            connection.Send(Encoding.ASCII.GetBytes("request;sql"));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string message = "ansver;";
+            if (radioButtonA.Checked)
+            {
+                message += "a";
+            }
+            else if (radioButtonB.Checked)
+            {
+                message += "b";
+            }
+            else if (radioButtonC.Checked)
+            {
+                message += "c";
+            }
+            else
+            {
+                message += "d";
+            }
+            var b = Encoding.ASCII.GetBytes(message);
+            connection.Send(b);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

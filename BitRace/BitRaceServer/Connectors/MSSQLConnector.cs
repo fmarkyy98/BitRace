@@ -83,7 +83,7 @@ namespace BitRaceServer
             return result;
         }
 
-        public static bool IsCorrectAnswer(int questionId, int anvwerId) //Dummy
+        public static bool IsCorrectAnswer(int questionId, string caracterKey) //Dummy
         {
             return false;
         }

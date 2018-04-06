@@ -13,7 +13,9 @@ namespace BitRaceServer
 {
     class Controller
     {
-        static Game game = new Game(10, 3, 3);
+        static Game game1 = new Game(10, 3, 3);
+        public static Game Game1 { get { return new Game(game1); } }
+
         static ConnectionState sqlState;
 
         static List<Socket> clientsGlobal = new List<Socket>();
@@ -51,7 +53,10 @@ namespace BitRaceServer
                         continue;
                     }
                     if (recieveSize <= 0)
+                    {
+                        Thread.Sleep(1000);
                         continue;
+                    }
                     string input = Encoding.ASCII.GetString(buffer, 0, recieveSize);
                     string[] splitedInput = input.Split(';');
 
@@ -61,15 +66,19 @@ namespace BitRaceServer
                     }
                     else if (splitedInput[0] == "register")
                     {
-                        int indexOfCurrent = game.Players.Select(x => x.Name).ToList().IndexOf(splitedInput[0]);
+                        int indexOfCurrent = game1.Players.Select(x => x.Name).ToList().IndexOf(splitedInput[0]);
                         if (indexOfCurrent == -1)
                         {
-                            game.AddPlayer(splitedInput[0], client);
+                            game1.AddPlayer(splitedInput[0], client);
                         }
                         else
                         {
-                            game.Players[indexOfCurrent].Conect(client);
+                            game1.Players[indexOfCurrent].Conect(client);
                         }
+                    }
+                    else if (splitedInput[0] == "answer")
+                    {
+
                     }
                 }
             }
@@ -99,10 +108,6 @@ namespace BitRaceServer
             while (true)
             {
                 Socket incoming = connection.Accept();
-                if (!incoming.Poll(0, SelectMode.SelectRead))
-                {
-                    continue;
-                }
                 lock (clientsGlobal)
                 {
                     clientsGlobal.Add(incoming);

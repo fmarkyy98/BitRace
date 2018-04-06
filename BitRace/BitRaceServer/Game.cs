@@ -27,6 +27,12 @@ namespace BitRaceServer
             get { return new List<Player>(this.players); }
         }
 
+        public Game(Game game)
+        {
+            this.players = new List<Player>(players);
+            this.questions = new List<MainQuestion>(questions);
+        }
+
         public Game(int countOfMainQuetions, int countOfPrimaryExtensionQuestionsOverMainQuetion, int countOfSecondaryExtensionQuestionsOverPrymaryExtensionQuetion)
         {
             int countOfPrimaryExtensionQuestions;

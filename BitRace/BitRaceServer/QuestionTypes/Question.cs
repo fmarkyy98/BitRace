@@ -15,6 +15,8 @@ namespace BitRaceServer
         protected Dictionary<int, string> optionalAnswers;
         protected List<int> keysOfSelectedIncorrectAnsver = new List<int>();
 
+        public int Id { get { return id; } }
+
         public Question(int id, string text, Dictionary<int, string> optionalAnswers)
         {
             this.id = id;

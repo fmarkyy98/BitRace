@@ -12,22 +12,22 @@ namespace BitRaceServer
         protected int id;
         protected string text;
         protected Difficulty difficulty;
-        protected Dictionary<int, string> optionalAnswers;
+        protected Dictionary<string, string> optionalAnswers;
         protected List<int> keysOfSelectedIncorrectAnsver = new List<int>();
 
         public int Id { get { return id; } }
 
-        public Question(int id, string text, Dictionary<int, string> optionalAnswers)
+        public Question(int id, string text, Dictionary<string, string> optionalAnswers)
         {
             this.id = id;
             this.text = text;
-            this.optionalAnswers = new Dictionary<int, string>(optionalAnswers);
+            this.optionalAnswers = new Dictionary<string, string>(optionalAnswers);
             this.keysOfSelectedIncorrectAnsver = new List<int>();
         }
 
-        internal int keyOfCorrectAnsver()
+        internal string CaracterOfCorrectAnsver()
         {
-            foreach (KeyValuePair<int, string> answer in optionalAnswers)
+            foreach (KeyValuePair<string, string> answer in optionalAnswers)
             {
                if( MSSQLConnector.IsCorrectAnswer(this.id, answer.Key))
                 {
